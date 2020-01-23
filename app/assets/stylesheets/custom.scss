@@ -73,7 +73,15 @@ p {
       background-color: rgb(117, 179, 190)
   }
 
-  .bg-primary {
-    background-color: #4beb2c;
+  .bg-primary,
+  .btn-primary {
+    background-color: #2cebb2;
+    border: none;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color:#2cebb2;
+  border-color:none;
 }
   
