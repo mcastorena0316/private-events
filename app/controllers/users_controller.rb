@@ -17,8 +17,8 @@ class UsersController < ApplicationController
     end
 
     def show
-    @user = User.find(params[:id])
-
+      @user = User.find(params[:id])
+      @event = current_user.events.build if logged_in?
     end
 
     private

@@ -4,10 +4,9 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.datetime :date
-      t.references :user, null: false, foreign_key: true
+      t.integer :creator
 
       t.timestamps
     end
-    add_index :events, [:user_id, :created_at]
   end
 end
