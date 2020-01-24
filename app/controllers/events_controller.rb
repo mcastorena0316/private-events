@@ -7,13 +7,12 @@ class EventsController < ApplicationController
 
     def create
         current_user = User.find_by(id: session[:user_id])  
-
         @event = current_user.events.build(event_params)
-
         if @event.save
         flash[:success] = "Event created!"
-        redirect_to event_path(@event.id)   
+         redirect_to current_user
         else
+        @feed_items = []
         flash.now[:danger] = "No hay eventos"
         render 'user/show'
         end
@@ -22,6 +21,7 @@ class EventsController < ApplicationController
     def show
     end
 
+
     def index
         @events = Event.all
     end
@@ -29,6 +29,6 @@ class EventsController < ApplicationController
     private
 
     def event_params
-      params.require(:event).permit(:name, :description, :date)
+      params.require(:event).permit(:eventname, :description, :date)
     end
 end
