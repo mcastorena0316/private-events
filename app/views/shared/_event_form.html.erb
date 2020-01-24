@@ -3,11 +3,16 @@
     <div class="field">
     
     <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
-
+    <br>
+    <%= f.text_field :name %>
+    <br>
+    <%= f.label :description %>
+    <br>
     <%= f.text_field :description, placeholder: "Compose new event..." %>
-
-    <%= f.date_field :date, class: 'form-control' %>
+    <br>
+    <%= f.label :name %>
+    <br>
+    <%= f.date_field :date %>
     </div>
     <%= f.submit "Post", class: "btn btn-primary" %>
   <% end %>
