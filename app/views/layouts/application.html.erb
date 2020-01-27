@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title %></title>
-    <title>PrivateEvents</title>
+    <% if content_for?(:head) %>
+      <%= yield(:head) %>
+    <% end %>
     <%= render 'layouts/rails_default' %>
     <%= render 'layouts/shim' %>
     <%= javascript_include_tag "application" %>
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
+  
   <% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
   <% end %>
