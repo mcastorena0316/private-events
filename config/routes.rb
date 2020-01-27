@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :users, :only => [:new, :create, :show]
   resources :sessions
   resources :events, :only => [:create, :show, :index] 
+  resources :event_attendances, :only => [:create, :show] 
 end

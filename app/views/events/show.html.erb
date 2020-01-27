@@ -9,3 +9,9 @@
 <h3> 
 <%= @creator.name %>
 </h3>
+
+<h2>Attendees:</h2>
+<% @event.event_attendance.each do |atendee| %>
+  <%= User.find_by(id: atendee.attendee).name %><br>
+<% end %>
+</div>
