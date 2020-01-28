@@ -21,6 +21,13 @@ class UsersController < ApplicationController
       if logged_in?
         @event = current_user.events.build 
         @feed_items = current_user.feed.paginate(page: params[:page])
+        @prev_events = []
+        @upcoming_events = []
+        @user.event_attendance.each do |x|    
+          y = Event.find_by(id: x.attended_event) 
+          @upcoming_events << y if y.date >= DateTime.now     
+          @prev_events << y if y.date < DateTime.now    
+        end
       end
     end
 

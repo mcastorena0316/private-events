@@ -8,6 +8,6 @@ class User < ApplicationRecord
 
 
     def feed
-    events
+        events
     end
 end

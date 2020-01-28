@@ -21,11 +21,18 @@ class EventsController < ApplicationController
     def show
         @event = Event.find_by(id: params[:id])      
         @creator = @event.user
-    end
+        @atendee_z = []
+        @event.event_attendance.each do |x|
+            t = User.find_by(id: x.attendee).name
+            @atendee_z << t
 
+        end
+    end
 
     def index
         @events = Event.all
+        @upcoming_events = current_user.upcoming_events
+        @prev_events = current_user.previous_events
     end
 
     private
