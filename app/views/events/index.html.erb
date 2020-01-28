@@ -1,7 +1,24 @@
-<h1> Events </h1>
+<%= render 'shared/header' %>
 
-<ul class="events">
-  <% @events.each do |event| %>
+<h1> UPCOMING EVENTS </h1>
+
+<ul class="events text-center">
+  <% @upcoming_events.each do |event| %>
+    <li>    
+    <span>Name: <%= event.eventname %></span>
+    <br> 
+    <span>Date: <%= event.date%></span>
+    <br>    
+    <span>Description: <%= event.description %></span> 
+    </li> 
+    <br>
+  <% end %>
+</ul>
+
+<h1> PREVIOUS EVENTS </h1>
+
+<ul class="events text-center">
+  <% @prev_events.each do |event| %>
     <li>    
     <span>Name: <%= event.eventname %></span>
     <br> 

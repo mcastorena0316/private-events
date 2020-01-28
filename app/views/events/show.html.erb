@@ -1,18 +1,20 @@
+<%= render 'shared/header' %>
+
+<h1>Event Name</h1>
+
+<li> <h3 class="text-center"> <%= @event.eventname %> </h3></li>
+
 <h1>Event Description</h1>
 
-<h3> 
-<%= @event.description %>
-</h3>
+<li> <h3 class="text-center"> <%= @event.description %> </h3></li>
 
 <h1>Creator</h1>
 
-<h3> 
-<%= @creator.name %>
-</h3>
+<li><h3 class= "text-center"> <%= @creator.name %></h3></li>
 
-<h2>Attendees:</h2>
+<h1>Attendees:</h1>
 
 <% @atendee_z.each do |x|%>
-  <li><%= x %></li>
+  <li><h3 class= "text-center"><%= x %></h3></li>
   <% end%>
 </div>

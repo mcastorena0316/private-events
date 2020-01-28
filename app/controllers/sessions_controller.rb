@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name]) 
+    user = User.find_by(name: params[:session][:name])
     if !user.nil?
       log_in user
       redirect_to user
@@ -16,7 +16,5 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     redirect_to root_url
-
   end
-
 end
