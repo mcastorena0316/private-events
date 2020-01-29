@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:session][:name])
+    user = User.find_by(email: params[:session][:email])
     if !user.nil?
       log_in user
       redirect_to user
     else
-      flash.now[:danger] = 'Invalid name'
+      flash.now[:danger] = 'Invalid email'
       render 'new'
     end
   end

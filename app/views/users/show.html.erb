@@ -22,12 +22,7 @@
 
       <div class="col-md-4">
         <h3>Events Created by me </h3>
-        <%= render 'shared/feed' %>
-      </div>
-
-      <div class="col-md-4">
-
-        <% if @user.event_attendance.any? %>
+        <% if @user.events.any? %>
 
           <h3>Previous Events: </h3>
           <ol class="event">
@@ -50,6 +45,30 @@
 
       </div>
   
+     
+
+      <div class="col-md-4">
+      <h3>Events Im attending </h3>
+        <% if @user.event_attendance.any? %>
+
+          <h3>Previous Events: </h3>
+          <ol class="event">
+            <% @prev_events_attend.each do |x| %>
+              <li>Event: <%= x.description %> </li>
+              <li>Created by: <%= x.user.name %></li>
+            <% end %>
+          </ol>
+
+          <h3>Future Events: </h3>
+          <ol class="event">
+          <%  @upcoming_events_attend.each do |x| %>
+            <li>Event: <%= x.description %> </li>
+            <li>Created by: <%= x.user.name %></li>
+          <% end %>
+          </ol>
+        <% end %>
+
+      </div>
+  
     </div>
-  </div>
 </div>

@@ -17,15 +17,21 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     if logged_in?
-      @event = current_user.events.build
-      @feed_items = current_user.feed.paginate(page: params[:page])
-      @prev_events = []
-      @upcoming_events = []
-      @user.event_attendance.each do |x|
-        y = Event.find_by(id: x.attended_event)
-        @upcoming_events << y if y.date >= DateTime.now
-        @prev_events << y if y.date < DateTime.now
-      end
+      @event = @user.events.build
+      @feed_items = @user.feed.paginate(page: params[:page])
+      @prev_events = @user.events.previous_events
+      @upcoming_events = @user.events.upcoming_events
+
+      @prev_events_attend, @upcoming_events_attend =[], []
+       
+        @user.event_attendance.each do |x|
+        y= Event.find_by(id: x.attended_event)
+          if y.date >= DateTime.now
+          @upcoming_events_attend.push(y)
+          elsif y.date < DateTime.now
+          @prev_events_attend.push(y)   
+          end  
+        end
     end
   end
 
