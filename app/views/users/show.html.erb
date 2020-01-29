@@ -27,7 +27,8 @@
           <h3>Previous Events: </h3>
           <ol class="event">
             <% @prev_events.each do |x| %>
-              <li>Event: <%= x.description %> </li>
+              <li>Event Name: <%= x.eventname %> </li>
+              <li>Description: <%= x.description %> </li>
               <li>Created by: <%= x.user.name %></li>
               <li>Date: <%= x.date %></li>
             <% end %>
@@ -36,7 +37,8 @@
           <h3>Future Events: </h3>
           <ol class="event">
           <% @upcoming_events.each do |x| %>
-            <li>Event: <%= x.description %> </li>
+            <li>Event Name: <%= x.eventname %> </li>
+            <li>Description: <%= x.description %> </li>
             <li>Created by: <%= x.user.name %></li>
             <li>Date: <%= x.date %></li>
           <% end %>
@@ -54,16 +56,20 @@
           <h3>Previous Events: </h3>
           <ol class="event">
             <% @prev_events_attend.each do |x| %>
-              <li>Event: <%= x.description %> </li>
+              <li>Event Name: <%= x.eventname %> </li>
+              <li>Description: <%= x.description %> </li>
               <li>Created by: <%= x.user.name %></li>
+              <li>Date: <%= x.date %></li>
             <% end %>
           </ol>
 
           <h3>Future Events: </h3>
           <ol class="event">
           <%  @upcoming_events_attend.each do |x| %>
-            <li>Event: <%= x.description %> </li>
+            <li>Event Name: <%= x.eventname %> </li>
+            <li>Description: <%= x.description %> </li>
             <li>Created by: <%= x.user.name %></li>
+            <li>Date: <%= x.date %></li>
           <% end %>
           </ol>
         <% end %>
