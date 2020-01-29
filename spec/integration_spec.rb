@@ -6,7 +6,7 @@ RSpec.feature 'Integrations', type: :feature do
     visit login_path
     have_link 'Log in', href: login_path
     have_link 'Events', href: events_path
-    page.fill_in 'Name', with: 'Foobar'
+    page.fill_in 'Email', with: 'goobar@example.org'
     click_button 'Log in'
     expect(page.current_path).to eq '/users/1'
     have_link 'Post', href: events_path

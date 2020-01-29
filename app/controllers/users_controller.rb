@@ -23,16 +23,17 @@ class UsersController < ApplicationController
       @prev_events = @user.events.previous_events
       @upcoming_events = @user.events.upcoming_events
 
-      @prev_events_attend, @upcoming_events_attend =[], []
-       
-        @user.event_attendance.each do |x|
-        y= Event.find_by(id: x.attended_event)
-          if y.date >= DateTime.now
+      @prev_events_attend = []
+      @upcoming_events_attend = []
+
+      @user.event_attendance.each do |x|
+        y = Event.find_by(id: x.attended_event)
+        if y.date >= DateTime.now
           @upcoming_events_attend.push(y)
-          elsif y.date < DateTime.now
-          @prev_events_attend.push(y)   
-          end  
+        elsif y.date < DateTime.now
+          @prev_events_attend.push(y)
         end
+      end
     end
   end
 
