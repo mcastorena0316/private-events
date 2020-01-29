@@ -1,0 +1,19 @@
+<%= form_for(@event) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+      
+      <%= f.label :name_of_event %>
+      <br>
+      <%= f.text_field :eventname %>
+      <br>
+      <%= f.label :description %>
+      <br>
+      <%= f.text_field :description, placeholder: "Compose new event..." %>
+      <br>
+      <%= f.label :date %>
+      <br>
+      <%= f.date_field :date %>
+    </div>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+  <% end %>

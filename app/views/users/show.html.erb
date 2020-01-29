@@ -1,0 +1,88 @@
+
+<% content_for :head do %>
+  <title><%= full_title %></title>
+<% end %>
+
+<%= render 'shared/header' %>
+<div class="row">
+  <div class=>
+    <aside class="col-md-4">
+      <section class="user_info pl-2">
+        <h1>
+          <%= @user.name %>
+          <br>
+          <%= @user.email %>
+          <br>
+          <section class="event">
+          <%= render 'shared/event_form' %>
+          </section>
+        </h1>
+      </section>
+    </aside>
+
+      <div class="col-md-4">
+        <h3>Events Created by me </h3>
+        <% if @user.events.any? %>
+
+          <h3>Previous Events: </h3>
+          <ol class="event">
+            <% @prev_events.each do |x| %>
+              <p class="event">
+              <li>Event Name: <%= x.eventname %> </li>
+              <li>Description: <%= x.description %> </li>
+              <li>Created by: <%= x.user.name %></li>
+              <li>Date: <%= x.date %></li>
+              </p>
+            <% end %>
+          </ol>
+
+          <h3>Future Events: </h3>
+          <ol class="event">
+          <% @upcoming_events.each do |x| %>
+            <p class="event">
+            <li>Event Name: <%= x.eventname %> </li>
+            <li>Description: <%= x.description %> </li>
+            <li>Created by: <%= x.user.name %></li>
+            <li>Date: <%= x.date %></li>
+            </p>
+          <% end %>
+          </ol>
+        <% end %>
+
+      </div>
+  
+     
+
+      <div class="col-md-4">
+      <h3>Events Im attending </h3>
+        <% if @user.event_attendance.any? %>
+
+          <h3>Previous Events: </h3>
+          <ol class="event">
+            <% @prev_events_attend.each do |x| %>
+              <p class="event">
+              <li>Event Name: <%= x.eventname %> </li>
+              <li>Description: <%= x.description %> </li>
+              <li>Created by: <%= x.user.name %></li>
+              <li>Date: <%= x.date %></li>
+              </p>
+            <% end %>
+          </ol>
+
+          <h3>Future Events: </h3>
+          <ol class="event">
+          <%  @upcoming_events_attend.each do |x| %>
+            <p class="event">
+            <li>Event Name: <%= x.eventname %> </li>
+            <li>Description: <%= x.description %> </li>
+            <li>Created by: <%= x.user.name %></li>
+            <li>Date: <%= x.date %></li>
+            </p>
+          <% end %>
+          </ol>
+        <% end %>
+
+      </div>
+  
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<li id="event-<%= event.id %>">
+  <span class="content"><%= link_to event.eventname, event %></span>
+  <span class="content"><%= event.description %></span>
+  <span class="content">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+  </span>
+</li>
